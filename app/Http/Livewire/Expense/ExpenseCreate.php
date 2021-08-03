@@ -25,8 +25,7 @@ class ExpenseCreate extends Component
     {
         $this->validate();
 
-        Expense::create([
-            'user_id' => 1,
+        auth()->user()->expenses()->create([
             'amount' => $this->amount,
             'description' => $this->description,
             'type' => $this->type

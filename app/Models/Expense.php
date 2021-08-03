@@ -11,6 +11,16 @@ class Expense extends Model
 
     protected $fillable = ['user_id', 'description', 'type', 'amount'];
 
+    public function getAmountAttribute($value)
+    {
+        return $value / 100;
+    }
+
+    public function setAmountAttribute($value)
+    {
+        return $this->attributes['amount'] = $value * 100;
+    }
+
     public function user() 
     {
         return $this->belongsTo(User::class);
