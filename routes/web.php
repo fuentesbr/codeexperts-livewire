@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Livewire\Expense\{ExpenseCreate, ExpenseEdit, ExpenseList};
+use App\Http\Livewire\Payment\CreditCard;
 use App\Http\Livewire\Plan\{PlanCreate, PlanList};
 use Illuminate\Support\Facades\{File, Storage};
 
@@ -50,3 +51,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     });
 
 });
+
+Route::get('subscription', CreditCard::class)->name('plan.subscription');
